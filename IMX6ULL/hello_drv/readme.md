@@ -36,7 +36,7 @@ obj-m	+= hello_drv.o
 
 在实验目录下输入如下命令来编译驱动模块：
 
-
+![](D:\Stage3-DeviceDriver\IMX6ULL\hello_drv\hello_drv_0.jpg)
 
 
 
@@ -51,3 +51,5 @@ obj-m	+= hello_drv.o
 ```
 
 实验现象：
+
+![](D:\Stage3-DeviceDriver\IMX6ULL\hello_drv\hello_drv_1.jpg)
