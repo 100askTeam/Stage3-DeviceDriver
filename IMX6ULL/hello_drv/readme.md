@@ -52,4 +52,4 @@ obj-m	+= hello_drv.o
 
 实验现象：
 
-![](D:\Stage3-DeviceDriver\IMX6ULL\hello_drv\hello_drv_1.jpg)
+![](hello_drv_1.jpg)
