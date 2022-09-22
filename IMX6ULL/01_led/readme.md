@@ -12,7 +12,7 @@
 
 打开当前目录的`100ask_imx6ull_v1.1.pdf`，100ASK_IMX6ULL使用的LED原理图如下，可知引脚是GPIO5_3：
 
-![led_Pin](led_pin.jpg)
+![led_Pin](./led_pin.jpg)
 
 
 
