@@ -1,0 +1,5 @@
+        gpio_keys_100ask {
+                compatible = "100ask,gpio_key";
+                gpios = <&gpiog 3 GPIO_ACTIVE_LOW
+                &gpiog 2 GPIO_ACTIVE_LOW>;
+        };
