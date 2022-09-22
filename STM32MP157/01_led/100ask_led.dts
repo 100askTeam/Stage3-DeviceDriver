@@ -1,0 +1,5 @@
+        myled {
+                compatible = "100ask,leddrv";
+                pinctrl-names = "default";
+                led-gpios = <&gpioa 10 GPIO_ACTIVE_LOW>;
+        };
