@@ -37,10 +37,11 @@ vi arch/arm/boot/dts/stm32mp157c-100ask-512d-lcd-v1.dts
 增加如下内容，
 
 ```
-        sr501 {
-                compatible = "100ask,sr501";
-                gpios = <&gpioa 5 GPIO_ACTIVE_HIGH>;
-         };
+   sr04 {  /* for stm32mp157 */
+        compatible = "100ask,sr04";
+        trig-gpios = <&gpioa 5 GPIO_ACTIVE_HIGH>;
+        echo-gpios = <&gpioa 13 GPIO_ACTIVE_HIGH>;
+    };
 ```
 
 ![sr04-dts](sr04-dts.png)

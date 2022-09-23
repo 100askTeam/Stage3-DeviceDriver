@@ -1,0 +1,6 @@
+
+
+   hs0038 {  /* for stm32mp157 */
+        compatible = "100ask,hs0038";
+        gpios = <&gpioc 3 GPIO_ACTIVE_HIGH>;
+    };
