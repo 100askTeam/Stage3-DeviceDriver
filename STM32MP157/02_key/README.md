@@ -78,7 +78,7 @@ cp arch/arm/boot/dts/stm32mp157c-100ask-512d-lcd-v1.dtb ~/nfs_rootfs/
 
 ![make_cp](make_cp.png)
 
-## 4.编译LED程序
+## 4.编译程序
 
 修改Makefile文件，将下图中Makefile文件中的KERN_DIR修改为开发板内核目录，如使用的是百问网提供的Ubuntu镜像目录设置为：
 
@@ -103,10 +103,10 @@ cp arch/arm/boot/dts/stm32mp157c-100ask-512d-lcd-v1.dtb ~/nfs_rootfs/
 在保证开发板和Ubuntu可以ping通的情况下，将开发板挂载网络文件系统，输入：
 
 ```
- mount -t nfs -o nolock,vers=3 192.168.10.149:/home/book/nfs_rootfs /mnt
+ mount -t nfs -o nolock,vers=3 192.168.5.11:/home/book/nfs_rootfs /mnt
 ```
 
-注意上面的192.168.10.149需要修改为自己的Ubuntu的ip，具体操作可参考嵌入式Linux应用开发完全手册第2篇的第七章。
+注意上面的192.168.5.11需要修改为自己的Ubuntu的ip，具体操作可参考嵌入式Linux应用开发完全手册第2篇的第七章。
 
 拷贝mnt目录下的设备树到boot目录，输入
 

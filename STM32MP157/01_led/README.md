@@ -91,10 +91,10 @@ cp leddrv.ko ledtest ~/nfs_rootfs/
 在保证开发板和Ubuntu可以ping通的情况下，将开发板挂载网络文件系统，输入：
 
 ```
- mount -t nfs -o nolock,vers=3 192.168.10.149:/home/book/nfs_rootfs /mnt
+ mount -t nfs -o nolock,vers=3 192.168.5.11:/home/book/nfs_rootfs /mnt
 ```
 
-注意上面的192.168.10.149需要修改为自己的Ubuntu的ip，具体操作可参考嵌入式Linux应用开发完全手册第2篇的第七章。
+注意上面的192.168.5.11需要修改为自己的Ubuntu的ip，具体操作可参考嵌入式Linux应用开发完全手册第2篇的第七章。
 
 查询开发板上保存内核和设备树的分区
 
