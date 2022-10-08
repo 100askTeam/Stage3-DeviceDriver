@@ -163,6 +163,6 @@ insmod oled_drv.ko
 ./spi_oled  /dev/100ask_oled
 ```
 
-使用红外遥控器，按下按键的实验现象：
+实验现象：
 
 ![Experimental-phenomenon](Experimental-phenomenon.png)
