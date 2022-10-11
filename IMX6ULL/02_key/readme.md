@@ -12,7 +12,7 @@
 
 打开`100ask_imx6ull_v1.1.pdf`，100ASK_IMX6ULL使用的kEY1、KEY2原理图如下，可知引脚是`GPIO5_1`与`GPIO4_IO14`：
 
-![io](key_pin.jpg)
+![io](02-keydriver_key_pin.jpg)
 
 
 
@@ -31,11 +31,11 @@ vi 100ask_imx6ull-14x14.dts
 
 在`iomuxc_snvs`子节点下添加如下信息：
 
-![iomuxc_snvs](iomuxc_snvs.jpg)
+![iomuxc_snvs](02-keydriver_iomuxc_snvs.jpg)
 
 在`iomuxc`子节点下添加如下信息：
 
-![iomuxc](iomuxc.jpg)
+![iomuxc](02-keydriver_iomuxc.jpg)
 
 在`/`根节点下添加如下信息：
 
@@ -50,7 +50,7 @@ vi 100ask_imx6ull-14x14.dts
     };  
 ```
 
-![gpio_keys_100ask](gpio_keys_100ask.jpg)
+![gpio_keys_100ask](02-keydriver_gpio_keys_100ask.jpg)
 
 
 
@@ -74,7 +74,7 @@ book@100ask:~/100ask_imx6ull-sdk/Linux-4.9.88$ cp arch/arm/boot/dts/100ask_imx6u
 
 reboot 使用新的设备树重新启动之后正常情况下会在开发板的“/proc/device-tree”目录下生成“ gpio_keys_100ask”设备树节点。
 
-![device_tree](device_tree.jpg)
+![](02-keydriver_device_tree.jpg.jpg)
 
 
 
@@ -109,7 +109,7 @@ obj-m += gpio_key_drv.o
 
 在Ubuntu下，执行编译命令
 
-![makefile](makefile.jpg)
+![makefile](02-keydriver_makefile.jpg)
 
 把生成的`gpio_key_drv.ko`和`button_test`拷贝到NFS网络文件系统
 
@@ -128,11 +128,7 @@ obj-m += gpio_key_drv.o
 
 实验结果：
 
-![test](test.jpg)
-
-
-
-
+![test](02-keydriver_test.jpg)
 
 
 

@@ -14,13 +14,13 @@ DS18B20也使用的是“1-Wire单总线”，只通过一条数据线传输数�
 
 DS18B20的硬件设计电路与前面的DHT11基本一致，原理图如下：
 
-<img src="hardware.jpg" alt="hardware" style="zoom:50%;" />
+<img src="06-ds18b20driver_hardware.jpg" alt="hardware" style="zoom:50%;" />
 
 IMX6ULL先断电，按下图所示，将模块插在扩展板的GPIO0，将扩展板插在底板上。
 
 **注意**：为了防止用户接错方向，模块和扩展板都有一条长白线，连接时需要模块上的白线和扩展板的白线在同一侧。
 
-<img src="ds18b20_module.jpg" alt="ds18b20_module" style="zoom:50%;" />
+<img src="06-ds18b20driver_ds18b20_module.jpg" alt="ds18b20_module" style="zoom:50%;" />
 
 
 
@@ -47,7 +47,7 @@ book@100ask:~/100ask_imx6ull-sdk/Linux-4.9.88$ make dtbs
 book@100ask:~/100ask_imx6ull-sdk/Linux-4.9.88$ cp arch/arm/boot/dts/100ask_imx6ull-14x14.dtb ~/nfs_rootfs/
 ```
 
-![make_dtbs](make_dtbs.jpg)
+![make_dtbs](06-ds18b20driver_make_dtbs.jpg)
 
 把设备树拷贝到开发板上运行：
 
@@ -112,7 +112,7 @@ cp ds18b20_test *.ko ~/nfs_rootfs/
 [root@100ask:/mnt]# ./ds18b20_test /dev/myds18b20
 ```
 
-![test](test.jpg)
+![test](06-ds18b20driver_test.jpg)
 
 
 

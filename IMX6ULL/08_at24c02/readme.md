@@ -12,9 +12,7 @@
 
 EEPROM模块的原理图如下：
 
-![datasheet](datasheet.jpg)
-
-
+![datasheet](08-at24c02driver_datasheet.jpg)
 
 
 
@@ -26,7 +24,7 @@ IMX6ULL先断电，按下图所示，将模块插在扩展板的I2C_A，将扩�
 
 **注意**：本实验中，AT24C02模块要插到I2C_A接口，如下图所示。
 
-<img src="connect.jpg" alt="connect" style="zoom:50%;" />
+<img src="08-at24c02driver_connect.jpg" alt="connect" style="zoom:50%;" />
 
 
 
@@ -38,7 +36,7 @@ book@100ask:~/100ask_imx6ull-sdk/Linux-4.9.88/$ vi arch/arm/boot/dts/100ask_imx6
 
 在`&i2c1`节点处加上如下信息：
 
-![devicetree](devicetree.jpg)
+![devicetree](08-at24c02driver_devicetree.jpg)
 
 
 
@@ -46,7 +44,7 @@ book@100ask:~/100ask_imx6ull-sdk/Linux-4.9.88/$ vi arch/arm/boot/dts/100ask_imx6
 
 ## 4.编译设备树
 
-![make_dtbs](make_dtbs.jpg)
+![make_dtbs](08-at24c02driver_make_dtbs.jpg)
 
 把设备树拷贝到开发板上运行：
 
@@ -59,7 +57,7 @@ book@100ask:~/100ask_imx6ull-sdk/Linux-4.9.88/$ vi arch/arm/boot/dts/100ask_imx6
 
 ## 5.查看生成的设备树节点信息
 
-reboot 使用新的设备树重新启动之后正常情况下会在开发板的“/proc/device-tree”目录下生成"hs0038"设备树节点。
+reboot 使用新的设备树重新启动之后正常情况下会在开发板的“/proc/device-tree”目录下生成"at4c02"设备树节点。
 
 
 
@@ -97,7 +95,7 @@ obj-m += at24c02_drv.o
 
 ## 7.加载驱动模块并进行测试
 
-![test](.\test.jpg)
+![test](08-at24c02driver_test.jpg)
 
 
 

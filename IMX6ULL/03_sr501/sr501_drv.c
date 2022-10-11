@@ -45,7 +45,6 @@ static ssize_t sr501_drv_read (struct file *file, char __user *buf, size_t size,
 	copy_to_user(buf, &val, len);
 	return len;
 #else
-	int val;
 	int len = (size < 4)? size : 4;
 	/* 1. 有数据就copy_to_uesr */
 	/* 2. 无数据就休眠:  放入某个链表 */
@@ -76,13 +75,15 @@ static struct file_operations sr501_fops = {
 
 static irqreturn_t sr501_isr(int irq, void *dev_id)
 {
+	int val = gpiod_get_value(sr501_gpio);
 	/* 1. 记录数据 */
-	sr501_data = 1;
+	sr501_data = 0x80 | val;
+	printk("%s %s %d, val = 0x%x\n", __FILE__, __FUNCTION__, __LINE__, sr501_data);
 
 	/* 2. 唤醒APP:去同一个链表把APP唤醒 */
-	wake_up(sr501_wq);
+	wake_up(&sr501_wq);
 	
-	return IRQ_WAKE_THREAD;
+	return IRQ_HANDLED; // IRQ_WAKE_THREAD;
 }
 
 
@@ -93,6 +94,7 @@ static irqreturn_t sr501_isr(int irq, void *dev_id)
  */
 static int sr501_probe(struct platform_device *pdev)
 {
+	printk("%s %s line %d\n", __FILE__, __FUNCTION__, __LINE__);
 	/* 1. 获得硬件信息 */
 	sr501_gpio = gpiod_get(&pdev->dev, NULL, 0);
 	gpiod_direction_input(sr501_gpio);
@@ -101,13 +103,18 @@ static int sr501_probe(struct platform_device *pdev)
 	request_irq(irq, sr501_isr, IRQF_TRIGGER_RISING|IRQF_TRIGGER_FALLING, "sr501", NULL);
 
 	/* 2. device_create */
-	device_create(sr501_class, NULL, MKDEV(major, 0), NULL, "/dev/sr501");
+	device_create(sr501_class, NULL, MKDEV(major, 0), NULL, "sr501");
 
 	return 0;
 }
 
 static int sr501_remove(struct platform_device *pdev)
 {
+	printk("%s %s line %d\n", __FILE__, __FUNCTION__, __LINE__);
+	device_destroy(sr501_class, MKDEV(major, 0));
+	free_irq(irq, NULL);
+	gpiod_put(sr501_gpio);
+	return 0;
 }
 
 
@@ -159,6 +166,8 @@ static void __exit sr501_exit(void)
 	printk("%s %s line %d\n", __FILE__, __FUNCTION__, __LINE__);
 
     platform_driver_unregister(&sr501s_driver);
+	class_destroy(sr501_class);
+	unregister_chrdev(major, "sr501");
 }
 
 

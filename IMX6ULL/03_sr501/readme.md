@@ -16,7 +16,7 @@ IMX6ULL先断电，按下图所示，将模块插在扩展板的GPIO0，将扩�
 
 注意：注意SR501模块中红线、黑线、绿线的位置，如下图接线。
 
-<img src="sr501_hardware.jpg" alt="sr501_hardware" style="zoom: 33%;" />
+<img src="03-sr501driver_sr501_hardware.jpg" alt="sr501_hardware" style="zoom: 33%;" />
 
 
 
@@ -35,13 +35,13 @@ vi 100ask_imx6ull-14x14.dts
 
 ①在`iomuxc`子节点下添加如下信息：
 
-![iomuxc](iomuxc.jpg)
+![iomuxc](03-sr501driver_iomuxc.jpg)
 
 
 
 ②在`/`根节点下添加如下信息：
 
-![device](device.jpg)
+![device](03-sr501driver_device.jpg)
 
 
 
@@ -52,7 +52,7 @@ book@100ask:~/100ask_imx6ull-sdk/Linux-4.9.88$ make dtbs
 book@100ask:~/100ask_imx6ull-sdk/Linux-4.9.88$ cp arch/arm/boot/dts/100ask_imx6ull-14x14.dtb ~/nfs_rootfs/
 ```
 
-![make_dtbs](make_dtbs.jpg)
+![make_dtbs](03-sr501driver_make_dtbs.jpg)
 
 把设备树拷贝到开发板上运行：
 
@@ -67,7 +67,7 @@ book@100ask:~/100ask_imx6ull-sdk/Linux-4.9.88$ cp arch/arm/boot/dts/100ask_imx6u
 
 reboot 使用新的设备树重新启动之后正常情况下会在开发板的“/proc/device-tree”目录下生成“sr501”设备树节点。
 
-![sr501](sr501.jpg)
+![sr501](03-sr501driver_sr501.jpg)
 
 
 
@@ -102,7 +102,7 @@ obj-m += sr501_drv.o
 
 在Ubuntu下，执行编译命令
 
-![make](make.jpg)
+![make](03-sr501driver_make.jpg)
 
 把生成的`sr501_drv.ko`和`button_test`拷贝到NFS网络文件系统
 
@@ -122,4 +122,4 @@ obj-m += sr501_drv.o
 
 当有人靠近的时候，内核会有打印信息出现
 
-![printk](printk.jpg)
+![printk](03-sr501driver_printk.jpg)

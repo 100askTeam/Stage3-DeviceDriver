@@ -14,13 +14,15 @@ DHT11的硬件电路比较简单，核心要点就是 主机发给DHT11的命令
 
 和IRDA模块的电路基本一致，主机通过一条数据线与DH11连接，主机通过这条线发命令给DHT11，DHT11再通过这条线把数据发送给主机。
 
-![connect](connect.jpg)
+![connect](05-dht11driver_connect.jpg)
+
+
 
 IMX6ULL先断电，按下图所示，将模块插在扩展板的GPIO0，将扩展板插在底板上。
 
 **注意**：为了防止用户接错方向，模块和扩展板都有一条长白线，连接时需要模块上的白线和扩展板的白线在同一侧。
 
-![line_connect](line_connect.jpg)
+![line_connect](05-dht11driver_line_connect.jpg)
 
 
 
@@ -39,7 +41,7 @@ vi 100ask_imx6ull-14x14.dts
 
 ①在`/`根节点下添加如下信息：
 
-![devicetree](devicetree.jpg)
+![devicetree](05-dht11driver_devicetree.jpg)
 
 
 
@@ -54,7 +56,7 @@ book@100ask:~/100ask_imx6ull-sdk/Linux-4.9.88$ make dtbs
 book@100ask:~/100ask_imx6ull-sdk/Linux-4.9.88$ cp arch/arm/boot/dts/100ask_imx6ull-14x14.dtb ~/nfs_rootfs/
 ```
 
-![make_dtbs](make_dtbs.jpg)
+![make_dtbs](05-dht11driver_make_dtbs.jpg)
 
 把设备树拷贝到开发板上运行：
 
@@ -106,7 +108,7 @@ clean:
 obj-m += dht11_drv.o
 ```
 
-![make](make.jpg)
+![make](05-dht11driver_make.jpg)
 
 把生成的`dht11_drv.ko`和`dht11_test`拷贝到NFS网络文件系统
 
@@ -127,7 +129,7 @@ book@100ask:~/IMX6ULL/05_dht11$ cp dht11_test *.ko ~/nfs_rootfs/
 
 实验结果如下：
 
-![dht11_test](dht11_test.jpg)
+![dht11_test](05-dht11driver_dht11_test.jpg)
 
 
 

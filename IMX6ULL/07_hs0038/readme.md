@@ -4,7 +4,7 @@
 >
 > 红外遥控被广泛应用于家用电器、工业控制和智能仪器系统中，像我们熟知的有电视机盒子遥控器、空调遥控器。红外遥控器系统分为发送端和接收端，如图下图所示。
 >
-> ![hs0038_introduce](hs0038_introduce.jpg)
+> ![hs0038_introduce](07-hs0038driver_hs0038_introduce.jpg)
 >
 > 发送端就是红外遥控器，上面有许多按键，当我们按下遥控器按键时，遥控器内部电路会进行编码和调制，再通过红外发射头，将信号以肉眼不可见的红外线发射出去。红外线线虽然肉眼不可见，但可以通过手机摄像头看到，常用该方法检查遥控器是否正常工作。
 >
@@ -16,7 +16,7 @@
 
 模块原理图及资料：网盘开发板配套资料“05_Hardware (原理图)/Extend_modules/irda.zip”。
 
-<img src="remote_control.jpg" alt="remote_control" style="zoom:50%;" />
+<img src="07-hs0038driver_remote_control.jpg" alt="remote_control" style="zoom:50%;" />
 
 
 
@@ -28,9 +28,9 @@ IMX6ULL先断电，按下图所示，将模块插在扩展板的GPIO0，将扩�
 
 然后准备好配套的红外遥控器，如果是第一次使用红外遥控器，要先取出电池上的隔离薄膜。
 
-![datasheet](datasheet.jpg)
+![datasheet](07-hs0038driver_datasheet.jpg)
 
-<img src="connect.jpg" alt="connect" style="zoom:50%;" />
+<img src="07-hs0038driver_connect.jpg" alt="connect" style="zoom:50%;" />
 
 
 
@@ -54,7 +54,7 @@ book@100ask:~/100ask_imx6ull-sdk/Linux-4.9.88$ make dtbs
 book@100ask:~/100ask_imx6ull-sdk/Linux-4.9.88$ cp arch/arm/boot/dts/100ask_imx6ull-14x14.dtb ~/nfs_rootfs/
 ```
 
-![devicetree](devicetree.jpg)
+![devicetree](07-hs0038driver_devicetree.jpg)
 
 把设备树拷贝到开发板上运行：
 
@@ -99,8 +99,6 @@ clean:
 # ab-y := a.o b.o
 # obj-m += ab.o
 
-
-
 obj-m += hs0038_drv.o
 ```
 
@@ -119,7 +117,7 @@ cp hs0038_test *.ko ~/nfs_rootfs/
 [root@100ask:/mnt]# ./hs0038_test /dev/myhs0038
 ```
 
-![test](test.jpg)
+![test](07-hs0038driver_test.jpg)
 
 
 

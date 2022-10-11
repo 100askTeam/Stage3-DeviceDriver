@@ -18,7 +18,9 @@ IMX6ULL先断电，按下图所示，将模块插在扩展板的GPIO0，将扩�
 
 注意：注意SR04模块中的红线、黑线、绿线、黄线的位置，如下图接线。
 
-<img src="hardware.jpg" alt="hardware" style="zoom: 33%;" />
+<img src="04-SR04driver_hardware.jpg" alt="hardware" style="zoom: 33%;" />
+
+
 
 
 
@@ -35,7 +37,7 @@ vi 100ask_imx6ull-14x14.dts
 
 ①在`/`根节点下添加如下信息：
 
-![devicetree](devicetree.jpg)
+![devicetree](04-SR04driver_devicetree.jpg)
 
 
 
@@ -46,7 +48,7 @@ book@100ask:~/100ask_imx6ull-sdk/Linux-4.9.88$ make dtbs
 book@100ask:~/100ask_imx6ull-sdk/Linux-4.9.88$ cp arch/arm/boot/dts/100ask_imx6ull-14x14.dtb ~/nfs_rootfs/
 ```
 
-![make](make.jpg)
+![make](04-SR04driver_make.jpg)
 
 把设备树拷贝到开发板上运行：
 
@@ -95,7 +97,7 @@ obj-m += sr04_drv.o
 
 在Ubuntu下，执行编译命令`make`
 
-![make_ok](make_ok.jpg)
+![make_ok](04-SR04driver_make_ok.jpg)
 
 把生成的`sr04_drv.ko`和`sr04_test`拷贝到NFS网络文件系统
 
@@ -117,5 +119,5 @@ insmod sr04_drv.ko
 
 打印出距离
 
-![test](test.jpg)
+![test](04-SR04driver_test.jpg)
 
